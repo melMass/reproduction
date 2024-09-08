@@ -1,29 +1,8 @@
-# Rsbuild Project
+# [Bug]: Conflict with bits-ui only in dev mode [#3411](https://github.com/web-infra-dev/rsbuild/issues/3411)
 
-## Setup
+## Steps to reproduce:
 
-Install the dependencies:
-
-```bash
+```sh
 pnpm install
-```
-
-## Get Started
-
-Start the dev server:
-
-```bash
 pnpm dev
-```
-
-Build the app for production:
-
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
 ```
