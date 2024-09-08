@@ -1,0 +1,25 @@
+{
+    "name": "reproduce-rsdoctor-issue",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "rsbuild dev --open",
+        "doctor": "cross-env RSDOCTOR=true rsbuild dev",
+        "build": "rsbuild build",
+        "preview": "rsbuild preview",
+        "svelte-check": "svelte-check --tsconfig ./tsconfig.json"
+    },
+    "dependencies": {
+        "@rsdoctor/rspack-plugin": "^0.4.1",
+        "svelte": "^4.2.19"
+    },
+    "devDependencies": {
+        "@rsbuild/core": "1.0.1-rc.5",
+        "@rsbuild/plugin-svelte": "1.0.1-rc.5",
+        "svelte-check": "^4.0.0",
+        "typescript": "^5.5.2",
+
+        "cross-env": "^7.0.0"
+    }
+}
+
