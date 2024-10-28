@@ -1,0 +1,11 @@
+{
+	"name": "simple_project",
+	"module": "index.js",
+	"type": "module",
+	"devDependencies": {
+		"@types/node": "latest"
+	},
+	"scripts": {
+		"hello": "node ./index.js"
+	}
+}
