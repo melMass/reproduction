@@ -1,0 +1,20 @@
+html {
+	font-family: "Inter Variable", Helvetica, sans-serif;
+	background-color: #00272b;
+	color: whitesmoke;
+	user-select: none;
+}
+button {
+	background: none;
+	border: none;
+	outline: 1px whitesmoke solid;
+	padding: 0.5em;
+	color: whitesmoke;
+}
+button:hover {
+	outline: 1px red solid;
+}
+
+h1 {
+	color: red;
+}

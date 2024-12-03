@@ -1,0 +1,42 @@
+name: Test Server
+
+on:
+  push:
+    branches: ["js/hono-vite-build"]
+  pull_request:
+    branches: ["js/hono-vite-build"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start server and test
+        run: |
+          node dist/index.js > server.log 2>&1 &
+
+          SERVER_PID=$!
+
+          sleep 8
+
+          curl -v http://localhost:3000/ || true
+
+          echo "=== Server Logs ==="
+          cat server.log
+
+          kill $SERVER_PID
