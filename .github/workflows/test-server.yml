@@ -28,43 +28,14 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install @playwright/test
-          npx playwright install --with-deps
+          npm install @playwright/test@latest 
+          npx playwright install --with-deps chromium
 
       - name: Start server and test
         run: |
           node dist/index.js > server.log 2>&1 &
           SERVER_PID=$!
           sleep 5
-
-          # playwright test script
-          cat > test.mjs << 'EOF'
-          import { chromium } from '@playwright/test';
-
-          async function testPage() {
-            const browser = await chromium.launch();
-            const page = await browser.newPage();
-            
-            try {
-              const response = await page.goto('http://localhost:3000/');
-              console.log('Page loaded with status:', response.status());
-              
-              await page.waitForTimeout(2000);
-              
-              page.on('console', msg => console.log('Browser console:', msg.text()));
-              
-              const content = await page.content();
-              console.log('Page content:', content);
-              
-            } catch (error) {
-              console.error('Test failed:', error);
-              process.exit(1);
-            } finally {
-              await browser.close();
-            }
-          }
-          testPage();
-          EOF
 
           node test.mjs || true
 
