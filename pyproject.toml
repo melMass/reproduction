@@ -1,0 +1,38 @@
+[project]
+name = "uv-reproduction"
+version = "0.1.0"
+description = "Trying to reproduce a behaviour of uv"
+requires-python = ">=3.11,<3.12"
+dependencies = ["torch", "torchaudio", "torchvision"]
+
+
+[[tool.uv.index]]
+name = "pytorch-nightly"
+url = "https://download.pytorch.org/whl/nightly/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+
+[tool.uv.sources]
+torchvision = [
+  { index = "pytorch-nightly", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cpu", marker = "platform_system == 'Darwin'" },
+]
+torchaudio = [
+
+  { index = "pytorch-nightly", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cpu", marker = "platform_system == 'Darwin'" },
+]
+torch = [
+  { index = "pytorch-nightly", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cpu", marker = "platform_system == 'Darwin'" },
+]
