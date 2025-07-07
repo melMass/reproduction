@@ -1,4 +1,5 @@
-# **[not tracked]** `uv add` updates the lock 
+# [Bug]: Unwanted lock file updates [#14485](https://github.com/astral-sh/uv/issues/14485)
+
 
 ## Tested on windows:
 
