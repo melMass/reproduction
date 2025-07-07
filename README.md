@@ -5,7 +5,7 @@
 
 ### Setup:
 
-```sh
+```nushell
 git clone https://github.com/melMass/reproduction
 git checkout python/uv-add-updates-lock
 uv sync --frozen
@@ -14,7 +14,7 @@ uv sync --frozen
 
 ### Reproduce:
 
-```sh
+```nushell
 uv add --group setup pip
 # this will update torch, torchaudio and torchvision
 ```
