@@ -15,6 +15,6 @@ uv sync --frozen
 ### Reproduce:
 
 ```sh
-uv add--group setup pip
+uv add --group setup pip
 # this will update torch, torchaudio and torchvision
 ```
